@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-        './src/*.jsx'
+        './src/*.jsx',
+        './src/components/*.jsx'
     ],
     theme: {
-        extend: {},
+        extend: {}
     },
     plugins: [
         require('@tailwindcss/aspect-ratio'),

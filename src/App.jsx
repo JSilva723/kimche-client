@@ -1,16 +1,259 @@
+import { CardsContainer, Header, Pagination } from "./components"
+
+const chars = [
+    {
+        id: 1,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:2,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:3,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:4,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:5,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:6,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:7,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:8,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:9,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:10,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    }, 
+    {
+        id:11,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:12,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:13,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:14,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:15,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:16,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:17,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:18,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:19,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+    {
+        id:20,
+        name: "Rick Sanchez",
+        imgUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+        status:	"Alive",
+        species:	"Human",
+        type:	"",
+        gender:	"Male",
+        location: "location",
+        origin: "origin",
+        dimension: "dimension"
+    },
+]
+
+
+
+
 function App() {
 
     return (
-        <div class="bg-white">
-            <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-                <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                        <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="h-full w-full object-cover object-center group-hover:opacity-75"/>
-                        <h3 class="flex items-end justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100">Rick Sanchez</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <>
+            <Header />
+            <CardsContainer items={chars} />
+            <Pagination />
+        </>
     )
 }
 

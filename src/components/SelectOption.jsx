@@ -1,12 +1,13 @@
 import { Listbox, Transition } from '@headlessui/react'
 import { useState, Fragment } from 'react'
+import PropTypes from 'prop-types'
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export const SelectOption = ({options}) => {
+const SelectOption = ({options}) => {
     const [selected, setSelected] = useState(options[0])
 
     return (
@@ -49,3 +50,9 @@ export const SelectOption = ({options}) => {
         </Listbox>
     )
 }
+
+SelectOption.propTypes = {
+    options: PropTypes.array,
+}
+
+export default SelectOption

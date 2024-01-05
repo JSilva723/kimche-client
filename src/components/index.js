@@ -1,4 +1,4 @@
-import { CardsContainer } from "./CardsContainer";
+import CardsContainer from "./CardsContainer";
 import { Pagination } from "./Pagination";
 import { Header } from "./Header";
 

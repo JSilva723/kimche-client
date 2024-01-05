@@ -1,4 +1,4 @@
-import { SelectOption } from "./SelectOption";
+import SelectOption from "./SelectOption";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 
 export const Header = () => (

@@ -1,10 +1,3 @@
-import PropTypes from 'prop-types'
-
-Card.propTypes = {
-    name: PropTypes.string,
-    imgUrl: PropTypes.string
-}
-
 export const Card = ({ name, imgUrl}) => (
     <div className="relative h-36 w-36">
         <img src={imgUrl} className="object-cover h-36 w-36 overflow-hidden rounded-xl" />

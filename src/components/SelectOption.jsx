@@ -1,14 +1,9 @@
 import { Listbox, Transition } from '@headlessui/react'
 import { useState, Fragment } from 'react'
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import PropTypes from 'prop-types'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
-  }
-
-SelectOption.propTypes = {
-    options: PropTypes.array
 }
 
 export const SelectOption = ({options}) => {

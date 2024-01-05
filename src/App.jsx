@@ -1,4 +1,5 @@
 import { CardsContainer, Header, Pagination } from "./components"
+import CardModal from "./components/CardModal"
 
 const chars = [
     {
@@ -242,9 +243,6 @@ const chars = [
         dimension: "dimension"
     },
 ]
-
-
-
 
 function App() {
 

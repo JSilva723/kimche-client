@@ -14,7 +14,6 @@ query Page($id: Int) {
             gender
             location {
                 name
-                id
             }
             origin {
                 name
@@ -24,5 +23,15 @@ query Page($id: Int) {
         }
     }
 }
-`;
+`
 
+
+export const GET_DIMENSION = gql`
+query Dimension($name: String){
+    locations(filter: {name: $name}) {
+        results {
+             dimension
+        }
+    }
+}
+`

@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
-import Card from "./Card";
 import CardModal from './CardModal';
 
 const CardsContainer = ({ items }) => (
-    <div className="grid grid-cols-1 gap-y-4 p-3 sm:grid-cols-3 md:grid-cols-5 content-center justify-items-center">
+    <div className="grid grid-cols-1 gap-4 p-3 sm:grid-cols-3 md:grid-cols-5 content-center justify-items-center overflow-y-auto">
         {items.map((item) => (<CardModal key={item.id} item={item} />))}
     </div>
 )

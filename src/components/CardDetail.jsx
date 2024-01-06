@@ -1,6 +1,6 @@
+import { useQuery } from '@apollo/client'
 import PropTypes from 'prop-types'
-import { useQuery } from '@apollo/client';
-import { GET_DIMENSION } from '../services/graphql';
+import { GET_DIMENSION } from '../utils'
 
 const RowDetail = ({label, text}) => (
     <p className="text-lg text-white mt-2">
@@ -14,7 +14,7 @@ RowDetail.propTypes = {
 }
 
 const CardDetail = ({ item, setOpen }) => {
-    const { loading, data } = useQuery(GET_DIMENSION, {variables: {name: item.location.name}})
+    const { data } = useQuery(GET_DIMENSION, {variables: {name: item.location.name}})
 
     return (
         <div className="relative z-50">
@@ -36,7 +36,7 @@ const CardDetail = ({ item, setOpen }) => {
                         <RowDetail label="Type" text={item.type}/>
                         <RowDetail label="Location" text={item.location.name}/>
                         <RowDetail label="Origin" text={item.origin.name}/>
-                        <RowDetail label="Dimension" text={!loading && data && data.locations.results[0].dimension}/>
+                        <RowDetail label="Dimension" text={data && data.locations.results[0].dimension}/>
                     </div>
                 </div>
             </div>

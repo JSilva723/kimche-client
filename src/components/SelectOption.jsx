@@ -1,17 +1,29 @@
 import { Listbox, Transition } from '@headlessui/react'
-import { useState, Fragment } from 'react'
+import { useState, Fragment, useContext, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { AppContext, classNames } from '../utils'
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 const SelectOption = ({options}) => {
+    const state = useContext(AppContext)
     const [selected, setSelected] = useState(options[0])
+    useEffect(() => {
+        if(state.option.status === '' && state.option.gender === ''){
+            setSelected(options[0])
+        }
+    }, [state.option, options])
+
+    const handleChange = (value) => {
+        setSelected(value)
+        state.setOption({
+            ...state.option,
+            [options[0].toLowerCase()]: value === options[0] ? "" : value 
+        })
+    }
 
     return (
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selected} onChange={handleChange}>
             {({ open }) => (
                 <div className="relative mt-2 w-full">
                     <Listbox.Button className="relative w-full cursor-default rounded-md py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
@@ -27,9 +39,11 @@ const SelectOption = ({options}) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options className="absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                        <Listbox.Options
+                            className="absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                        >
                             {options.map((option) =>(
-                                <Listbox.Option key={option} value={option}>
+                                <Listbox.Option key={option} value={option} >
                                     {({ selected }) => (
                                             <div className="flex items-center">
                                                 <span

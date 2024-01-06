@@ -8,7 +8,7 @@ const CardModal = ({ item }) => {
     return (
         <div className="relative">
             <div onClick={() => setOpen(true)}>
-                <Card name={item.name} imgUrl={item.imgUrl} />
+                <Card name={item.name} imgUrl={item.image} />
             </div>
             {open ? <CardDetail item={item} setOpen={setOpen}/> : null}
         </div>

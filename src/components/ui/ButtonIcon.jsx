@@ -41,7 +41,7 @@ const ButtonIcon = ({ type, icon, onClick }) => {
     return (
         <button
             onClick={onClick}
-            className={`flex items-center ${rounded} ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:bg-gray-50 focus:outline-none`}
+            className={`flex items-center ${rounded} ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:text-black hover:bg-gray-50 focus:outline-none`}
         >
             {OBJ_ICON[icon]}
         </button>

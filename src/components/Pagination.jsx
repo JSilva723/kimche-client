@@ -1,6 +1,6 @@
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import PropTypes from 'prop-types';
 import { usePagination } from '../hooks/usePagination';
+import ButtonIcon from './ui/ButtonIcon';
 
 const Pagination = () => {
     const { state, handlePrev, handleNext } = usePagination();
@@ -8,21 +8,11 @@ const Pagination = () => {
     return (
         <div className="flex items-center justify-center border-t border-gray-200 px-4 py-3">
             <nav className="flex" aria-label="Pagination">
-                <button
-                    onClick={() => handlePrev(state.page)}
-                    className="flex items-center rounded-l-md ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:bg-gray-50 focus:outline-none"
-                >
-                    <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
-                <span className="bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">
+                <ButtonIcon type="left" icon="chevLeft" onClick={() => handlePrev(state.page)} />
+                <span className="px-4 py-2 bg-white border border-gray-200 text-sm font-semibold text-black">
                     Page: {state.page} / {state.pages}
                 </span>
-                <button
-                    onClick={() => handleNext(state.page)}
-                    className="flex items-center rounded-r-md ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:bg-gray-50 focus:outline-none"
-                >
-                    <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
-                </button>
+                <ButtonIcon type="right" icon="chefRight" onClick={() => handleNext(state.page)} />
             </nav>
         </div>
     );

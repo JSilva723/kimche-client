@@ -15,27 +15,20 @@ export const mgrSpecies = (chars, speciesList) => {
     });
 };
 
-export const filterBy = (chars, filterBy) => {
-    let arrRet = chars;
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('status') && filterBy.status) {
-        arrRet = arrRet.filter((item) => item.status === filterBy.status);
-    }
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('gender') && filterBy.gender) {
-        arrRet = arrRet.filter((item) => item.gender === filterBy.gender);
-    }
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('species') && filterBy.species) {
-        arrRet = arrRet.filter((item) => item.species === filterBy.species);
-    }
+export const SPECIES_LIST = ['Species'];
+export const STATUS_LIST = ['Status', 'Dead', 'Alive', 'Unknown'];
+export const GENDER_LIST = ['Gender', 'Unknown', 'Female', 'Male', 'Genderless'];
 
-    return arrRet;
+export const filterBy = (chars, option) => {
+    return chars.filter((item) => {
+        return ['status', 'gender', 'species'].every((key) => {
+            const optionValue = option[key].toLowerCase();
+            const itemValue = item[key].toLowerCase();
+            const shouldInclude = optionValue === '' || optionValue === key.toLowerCase();
+            return shouldInclude ? true : itemValue === optionValue;
+        });
+    });
 };
-
-export const FIRST_PAGE = 1;
-
-export const initialOptions = { status: '', gender: '' };
 
 export const GET_PAGE = gql`
     query Page($page: Int, $name: String) {

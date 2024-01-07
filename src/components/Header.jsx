@@ -1,18 +1,17 @@
-import { useContext } from "react";
-import SelectOption from "./SelectOption";
-import { AppContext, initialOptions } from "../utils";
-import { InputSearch } from "./InputSearch";
-
+import { useContext } from 'react';
+import SelectOption from './SelectOption';
+import { AppContext, initialOptions } from '../utils';
+import { InputSearch } from './InputSearch';
 
 export const Header = () => {
-    const state = useContext(AppContext)
+    const state = useContext(AppContext);
 
     return (
         <div>
             <InputSearch />
             <div className="p-3 gap-x-3 md:flex md:items-center md:justify-between">
-                <SelectOption options={["Status", "Dead", "Alive", "Unknown"]} />
-                <SelectOption options={["Gender", "Unknown", "Female", "Male", "Genderless"]} />
+                <SelectOption options={['Status', 'Dead', 'Alive', 'Unknown']} />
+                <SelectOption options={['Gender', 'Unknown', 'Female', 'Male', 'Genderless']} />
                 <div className="mt-2">
                     <button
                         onClick={() => state.setOption(initialOptions)}
@@ -23,5 +22,5 @@ export const Header = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

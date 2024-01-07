@@ -1,32 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { Header, Pagination, CardsContainer, Loader } from "./components"
+import { Header, Pagination, CardsContainer, Loader } from './components';
 import { AppContext, FIRST_PAGE, GET_PAGE, initialOptions } from './utils';
 
-
 function App() {
-    const [page, setPage] = useState(FIRST_PAGE)
-    const [name, setName] = useState("")
-    const [option, setOption] = useState(initialOptions)
-    const [chars, setChars] = useState([])
-    const { data, loading, error } = useQuery(GET_PAGE, {variables: {page, name}})
+    const [page, setPage] = useState(FIRST_PAGE);
+    const [name, setName] = useState('');
+    const [option, setOption] = useState(initialOptions);
+    const [chars, setChars] = useState([]);
+    const { data, loading, error } = useQuery(GET_PAGE, { variables: { page, name } });
 
     useEffect(() => {
-        if(data) setChars(data.characters.results)
-    }, [data])
+        if (data) setChars(data.characters.results);
+    }, [data]);
 
     return (
         <div className="flex flex-col h-screen bg-black">
             {loading && <Loader />}
             {!loading && error && <h1>Error !!!</h1>}
-            {!loading && data && 
-                <AppContext.Provider 
-                    value={{ 
+            {!loading && data && (
+                <AppContext.Provider
+                    value={{
                         chars,
                         pages: data.characters.info.pages,
-                        page, 
-                        setPage, 
-                        option, 
+                        page,
+                        setPage,
+                        option,
                         setOption,
                         name,
                         setName
@@ -36,9 +35,9 @@ function App() {
                     <CardsContainer />
                     <Pagination />
                 </AppContext.Provider>
-            }
+            )}
         </div>
-    )
+    );
 }
 
-export default App
+export default App;

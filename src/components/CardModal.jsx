@@ -1,22 +1,22 @@
-import { useState  } from 'react'
-import PropTypes from 'prop-types'
+import { useState } from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 import CardDetail from './CardDetail';
 
 const CardModal = ({ item }) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false);
     return (
         <div className="relative">
             <div onClick={() => setOpen(true)}>
                 <Card name={item.name} imgUrl={item.image} />
             </div>
-            {open ? <CardDetail item={item} setOpen={setOpen}/> : null}
+            {open ? <CardDetail item={item} setOpen={setOpen} /> : null}
         </div>
-    )
-}
+    );
+};
 
 CardModal.propTypes = {
-    item: PropTypes.object,
-}
+    item: PropTypes.object
+};
 
-export default CardModal
+export default CardModal;

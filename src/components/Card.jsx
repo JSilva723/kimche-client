@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Card = ({ name, imgUrl }) => (
     <div className="relative min-w-36 min-h-36">
@@ -7,11 +7,11 @@ const Card = ({ name, imgUrl }) => (
             <h3 className="text-center text-white">{name}</h3>
         </div>
     </div>
-)
+);
 
 Card.propTypes = {
     name: PropTypes.string,
-    imgUrl: PropTypes.string,
-}
+    imgUrl: PropTypes.string
+};
 
-export default Card
+export default Card;

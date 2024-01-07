@@ -1,26 +1,25 @@
-import { Listbox, Transition } from '@headlessui/react'
-import { useState, Fragment, useContext, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { ChevronUpDownIcon } from '@heroicons/react/20/solid'
-import { AppContext, classNames } from '../utils'
+import { Listbox, Transition } from '@headlessui/react';
+import { useState, Fragment, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
+import { AppContext, classNames } from '../utils';
 
-
-const SelectOption = ({options}) => {
-    const state = useContext(AppContext)
-    const [selected, setSelected] = useState(options[0])
+const SelectOption = ({ options }) => {
+    const state = useContext(AppContext);
+    const [selected, setSelected] = useState(options[0]);
     useEffect(() => {
-        if(state.option.status === '' && state.option.gender === ''){
-            setSelected(options[0])
+        if (state.option.status === '' && state.option.gender === '') {
+            setSelected(options[0]);
         }
-    }, [state.option, options])
+    }, [state.option, options]);
 
     const handleChange = (value) => {
-        setSelected(value)
+        setSelected(value);
         state.setOption({
             ...state.option,
-            [options[0].toLowerCase()]: value === options[0] ? "" : value 
-        })
-    }
+            [options[0].toLowerCase()]: value === options[0] ? '' : value
+        });
+    };
 
     return (
         <Listbox value={selected} onChange={handleChange}>
@@ -39,20 +38,21 @@ const SelectOption = ({options}) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options
-                            className="absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-                        >
-                            {options.map((option) =>(
-                                <Listbox.Option key={option} value={option} >
+                        <Listbox.Options className="absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                            {options.map((option) => (
+                                <Listbox.Option key={option} value={option}>
                                     {({ selected }) => (
-                                            <div className="flex items-center">
-                                                <span
-                                                    className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
-                                                >
-                                                    {option}
-                                                </span>
-                                            </div>
-                                        )}
+                                        <div className="flex items-center">
+                                            <span
+                                                className={classNames(
+                                                    selected ? 'font-semibold' : 'font-normal',
+                                                    'ml-3 block truncate'
+                                                )}
+                                            >
+                                                {option}
+                                            </span>
+                                        </div>
+                                    )}
                                 </Listbox.Option>
                             ))}
                         </Listbox.Options>
@@ -60,11 +60,11 @@ const SelectOption = ({options}) => {
                 </div>
             )}
         </Listbox>
-    )
-}
+    );
+};
 
 SelectOption.propTypes = {
-    options: PropTypes.array,
-}
+    options: PropTypes.array
+};
 
-export default SelectOption
+export default SelectOption;

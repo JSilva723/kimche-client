@@ -1,5 +1,10 @@
-import PropTypes from 'prop-types'
-import { MagnifyingGlassIcon,  ChevronLeftIcon, ChevronRightIcon, BackspaceIcon } from "@heroicons/react/20/solid";
+import PropTypes from 'prop-types';
+import {
+    MagnifyingGlassIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    BackspaceIcon
+} from '@heroicons/react/20/solid';
 
 /**
  * @typedef {"search"|"chevLeft"|"chefRight"|"back"} iconIcon
@@ -9,7 +14,7 @@ const OBJ_ICON = {
     chevLeft: <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />,
     chefRight: <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />,
     back: <BackspaceIcon className="h-5 w-5" aria-hidden="true" />
-}
+};
 
 /**
  * @typedef {"left"|"right"} iconTypes
@@ -34,13 +39,13 @@ const ButtonIcon = ({ type, icon, onClick }) => {
         >
             {OBJ_ICON[icon]}
         </button>
-    )
-}
+    );
+};
 
 ButtonIcon.propTypes = {
     type: PropTypes.string,
     icon: PropTypes.string,
-    onClick: PropTypes.func,
-}
+    onClick: PropTypes.func
+};
 
-export default ButtonIcon
+export default ButtonIcon;

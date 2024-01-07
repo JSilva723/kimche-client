@@ -1,5 +1,5 @@
 import { Listbox, Transition } from '@headlessui/react';
-import { useState, Fragment, useContext, useEffect } from 'react';
+import { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { AppContext, classNames } from '../utils';
@@ -7,34 +7,21 @@ import { SET_OPTION } from '../utils/reducer';
 
 const SelectOption = ({ options }) => {
     const { state, dispatch } = useContext(AppContext);
-    const [selected, setSelected] = useState(options[0]);
-    useEffect(() => {
-        if (
-            state.option.status === '' &&
-            state.option.gender === '' &&
-            state.option.species === ''
-        ) {
-            setSelected(options[0]);
-        }
-    }, [state.option, options]);
-
     const handleChange = (value) => {
-        setSelected(value);
         dispatch({
             type: SET_OPTION,
-            payload: {
-                ...state.option,
-                [options[0].toLowerCase()]: value === options[0] ? '' : value
-            }
+            payload: { ...state.option, [options[0].toLowerCase()]: value }
         });
     };
 
     return (
-        <Listbox value={selected} onChange={handleChange}>
+        <Listbox value={state.option[options[0].toLowerCase()]} onChange={handleChange}>
             {({ open }) => (
-                <div className="relative mt-2 w-full">
+                <div className="relative w-full">
                     <Listbox.Button className="relative w-full cursor-default rounded-md py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
-                        <span className="ml-3 block truncate text-white">{selected}</span>
+                        <span className="ml-3 block truncate text-white">
+                            {state.option[options[0].toLowerCase()]}
+                        </span>
                         <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                             <ChevronUpDownIcon className="h-5 w-5 text-white" aria-hidden="true" />
                         </span>

@@ -2,16 +2,7 @@ import { useEffect, useReducer } from 'react';
 import { useQuery } from '@apollo/client';
 import { Header, Pagination, CardsContainer, Loader } from './components';
 import { AppContext, GET_PAGE } from './utils';
-import { SET_CAHRACTERS, appReducer } from './utils/reducer';
-
-const initalState = {
-    page: 1,
-    pages: 1,
-    name: '',
-    option: {},
-    chars: [],
-    species: ['Species']
-};
+import { SET_CAHRACTERS, appReducer, initalState } from './utils/reducer';
 
 function App() {
     const [state, dispatch] = useReducer(appReducer, initalState);

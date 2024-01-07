@@ -15,20 +15,17 @@ export const mgrSpecies = (chars, speciesList) => {
     });
 };
 
-export const filterBy = (chars, filterBy) => {
+export const SPECIES_LIST = ['Species'];
+export const STATUS_LIST = ['Status', 'Dead', 'Alive', 'Unknown'];
+export const GENDER_LIST = ['Gender', 'Unknown', 'Female', 'Male', 'Genderless'];
+
+export const filterBy = (chars, option) => {
     let arrRet = chars;
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('status') && filterBy.status) {
-        arrRet = arrRet.filter((item) => item.status === filterBy.status);
-    }
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('gender') && filterBy.gender) {
-        arrRet = arrRet.filter((item) => item.gender === filterBy.gender);
-    }
-    // eslint-disable-next-line no-prototype-builtins
-    if (filterBy.hasOwnProperty('species') && filterBy.species) {
-        arrRet = arrRet.filter((item) => item.species === filterBy.species);
-    }
+    ['status', 'gender', 'species'].forEach((key) => {
+        if (option[key] && key.toLocaleLowerCase() !== option[key].toLocaleLowerCase()) {
+            arrRet = arrRet.filter((item) => item[key].toLowerCase() === option[key].toLowerCase());
+        }
+    });
 
     return arrRet;
 };

@@ -19,12 +19,7 @@ const OBJ_ICON = {
 };
 
 /**
- * @typedef {"left"|"right"} iconTypes
- */
-
-/**
  * @typedef {Object} ButtonIcon
- * @property {iconTypes} type
  * @property {iconIcon} icon
  * @property {*} onClick
  */
@@ -34,14 +29,11 @@ const OBJ_ICON = {
  * @param {ButtonIcon} props
  */
 
-const ButtonIcon = ({ type, icon, onClick }) => {
-    let rounded = 'rounded-md';
-    if (type) rounded = `rounded-${type[0]}-md`;
-
+const ButtonIcon = ({ icon, onClick }) => {
     return (
         <button
             onClick={onClick}
-            className={`flex items-center ${rounded} ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:text-black hover:bg-gray-50 focus:outline-none`}
+            className={`flex items-center rounded-md ring-1 ring-gray-300 px-2 py-2 text-gray-400 hover:text-black hover:bg-gray-50 focus:outline-none`}
         >
             {OBJ_ICON[icon]}
         </button>
@@ -49,7 +41,6 @@ const ButtonIcon = ({ type, icon, onClick }) => {
 };
 
 ButtonIcon.propTypes = {
-    type: PropTypes.string | PropTypes.bool,
     icon: PropTypes.string,
     onClick: PropTypes.func
 };

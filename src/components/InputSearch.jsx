@@ -22,7 +22,6 @@ export const InputSearch = () => {
                 className="w-full px-3.5 py-1.5 text-white border-b border-gray-200 bg-white/5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <ButtonIcon
-                type="right"
                 icon={text && state.name ? 'back' : 'search'}
                 onClick={
                     text && state.name

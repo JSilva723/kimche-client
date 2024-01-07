@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
 import { GET_DIMENSION } from '../utils';
+import ButtonIcon from './ui/ButtonIcon';
 
 const RowDetail = ({ label, text }) => (
     <p className="text-lg text-white mt-2">
@@ -21,18 +22,15 @@ const CardDetail = ({ item, setOpen }) => {
         <div className="relative z-50">
             <div className="fixed inset-0 bg-black opacity-70" aria-hidden="true" />
             <div className="fixed inset-0 flex items-center justify-center">
-                <div className="relative flex bg-black rounded-lg w-1/3">
+                <div className="relative flex bg-black rounded-lg">
                     <img
                         src={item.image}
-                        className="object-cover h-50 w-1/2 overflow-hidden rounded-s-lg"
+                        className="object-cover h-50 overflow-hidden rounded-s-lg"
                     />
-                    <button
-                        onClick={() => setOpen(!open)}
-                        className="absolute top-3 right-3 bg-white border border-whiite-200 text-black rounded-full w-8 h-8"
-                    >
-                        x
-                    </button>
-                    <div className="flex flex-col justify-around items-center w-1/2 pe-2 pb-2">
+                    <div className="absolute top-3 right-3">
+                        <ButtonIcon icon="close" onClick={() => setOpen(!open)} />
+                    </div>
+                    <div className="flex flex-col justify-around items-center pe-2 pb-2 m-3">
                         <h3 className="text-2xl font-bold mt-5 text-white">{item.name}</h3>
                         <RowDetail label="Status" text={item.status} />
                         <RowDetail label="Gender" text={item.gender} />

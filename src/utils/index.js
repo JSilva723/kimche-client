@@ -20,14 +20,14 @@ export const STATUS_LIST = ['Status', 'Dead', 'Alive', 'Unknown'];
 export const GENDER_LIST = ['Gender', 'Unknown', 'Female', 'Male', 'Genderless'];
 
 export const filterBy = (chars, option) => {
-    let arrRet = chars;
-    ['status', 'gender', 'species'].forEach((key) => {
-        if (option[key] && key.toLocaleLowerCase() !== option[key].toLocaleLowerCase()) {
-            arrRet = arrRet.filter((item) => item[key].toLowerCase() === option[key].toLowerCase());
-        }
+    return chars.filter((item) => {
+        return ['status', 'gender', 'species'].every((key) => {
+            const optionValue = option[key].toLowerCase();
+            const itemValue = item[key].toLowerCase();
+            const shouldInclude = optionValue === '' || optionValue === key.toLowerCase();
+            return shouldInclude ? true : itemValue === optionValue;
+        });
     });
-
-    return arrRet;
 };
 
 export const GET_PAGE = gql`

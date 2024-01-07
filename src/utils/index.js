@@ -26,8 +26,8 @@ export const FIRST_PAGE = 1
 export const initialOptions = { status: '', gender: ''}
 
 export const GET_PAGE = gql`
-query Page($id: Int) {
-    characters(page: $id) {
+query Page($page: Int, $name: String) {
+    characters(page: $page filter: {name: $name}) {
         info { 
             pages
         }

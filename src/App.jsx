@@ -6,9 +6,10 @@ import { AppContext, FIRST_PAGE, GET_PAGE, initialOptions } from './utils';
 
 function App() {
     const [page, setPage] = useState(FIRST_PAGE)
+    const [name, setName] = useState("")
     const [option, setOption] = useState(initialOptions)
     const [chars, setChars] = useState([])
-    const { data, loading } = useQuery(GET_PAGE, {variables: {id: page}})
+    const { data, loading, error } = useQuery(GET_PAGE, {variables: {page, name}})
 
     useEffect(() => {
         if(data) setChars(data.characters.results)
@@ -17,6 +18,7 @@ function App() {
     return (
         <div className="flex flex-col h-screen bg-black">
             {loading && <Loader />}
+            {!loading && error && <h1>Error !!!</h1>}
             {!loading && data && 
                 <AppContext.Provider 
                     value={{ 
@@ -25,7 +27,9 @@ function App() {
                         page, 
                         setPage, 
                         option, 
-                        setOption
+                        setOption,
+                        name,
+                        setName
                     }}
                 >
                     <Header />

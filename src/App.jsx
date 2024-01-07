@@ -8,6 +8,7 @@ function App() {
     const [name, setName] = useState('');
     const [option, setOption] = useState(initialOptions);
     const [chars, setChars] = useState([]);
+    const [species, setSpecies] = useState(['Species']);
     const { data, loading, error } = useQuery(GET_PAGE, { variables: { page, name } });
 
     useEffect(() => {
@@ -28,7 +29,9 @@ function App() {
                         option,
                         setOption,
                         name,
-                        setName
+                        setName,
+                        species,
+                        setSpecies
                     }}
                 >
                     <Header />

@@ -7,6 +7,14 @@ export function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
+export const mgrSpecies = (chars, speciesList) => {
+    chars.forEach((element) => {
+        if (!speciesList.includes(element.species)) {
+            speciesList.push(element.species);
+        }
+    });
+};
+
 export const filterBy = (chars, filterBy) => {
     let arrRet = chars;
     // eslint-disable-next-line no-prototype-builtins
@@ -16,6 +24,10 @@ export const filterBy = (chars, filterBy) => {
     // eslint-disable-next-line no-prototype-builtins
     if (filterBy.hasOwnProperty('gender') && filterBy.gender) {
         arrRet = arrRet.filter((item) => item.gender === filterBy.gender);
+    }
+    // eslint-disable-next-line no-prototype-builtins
+    if (filterBy.hasOwnProperty('species') && filterBy.species) {
+        arrRet = arrRet.filter((item) => item.species === filterBy.species);
     }
 
     return arrRet;

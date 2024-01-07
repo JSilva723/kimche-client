@@ -33,10 +33,6 @@ export const filterBy = (chars, filterBy) => {
     return arrRet;
 };
 
-export const FIRST_PAGE = 1;
-
-export const initialOptions = { status: '', gender: '' };
-
 export const GET_PAGE = gql`
     query Page($page: Int, $name: String) {
         characters(page: $page, filter: { name: $name }) {

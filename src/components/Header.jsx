@@ -4,9 +4,9 @@ import { AppContext, mgrSpecies } from '../utils';
 import { InputSearch } from './InputSearch';
 
 export const Header = () => {
-    const state = useContext(AppContext);
+    const { state } = useContext(AppContext);
     useEffect(() => {
-        mgrSpecies(state.chars, state.species, state.setSpecies);
+        mgrSpecies(state.chars, state.species);
     });
 
     return (

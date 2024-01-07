@@ -1,18 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
 import { useQuery } from '@apollo/client';
 import { Header, Pagination, CardsContainer, Loader } from './components';
-import { AppContext, FIRST_PAGE, GET_PAGE, initialOptions } from './utils';
+import { AppContext, GET_PAGE } from './utils';
+import { SET_CAHRACTERS, appReducer } from './utils/reducer';
+
+const initalState = {
+    page: 1,
+    pages: 1,
+    name: '',
+    option: {},
+    chars: [],
+    species: ['Species']
+};
 
 function App() {
-    const [page, setPage] = useState(FIRST_PAGE);
-    const [name, setName] = useState('');
-    const [option, setOption] = useState(initialOptions);
-    const [chars, setChars] = useState([]);
-    const [species, setSpecies] = useState(['Species']);
-    const { data, loading, error } = useQuery(GET_PAGE, { variables: { page, name } });
+    const [state, dispatch] = useReducer(appReducer, initalState);
+    const { data, loading, error } = useQuery(GET_PAGE, {
+        variables: { page: state.page, name: state.name }
+    });
 
     useEffect(() => {
-        if (data) setChars(data.characters.results);
+        if (data) {
+            dispatch({
+                type: SET_CAHRACTERS,
+                payload: { chars: data.characters.results, pages: data.characters.info.pages }
+            });
+        }
     }, [data]);
 
     return (
@@ -20,20 +33,7 @@ function App() {
             {loading && <Loader />}
             {!loading && error && <h1>Error !!!</h1>}
             {!loading && data && (
-                <AppContext.Provider
-                    value={{
-                        chars,
-                        pages: data.characters.info.pages,
-                        page,
-                        setPage,
-                        option,
-                        setOption,
-                        name,
-                        setName,
-                        species,
-                        setSpecies
-                    }}
-                >
+                <AppContext.Provider value={{ state, dispatch }}>
                     <Header />
                     <CardsContainer />
                     <Pagination />

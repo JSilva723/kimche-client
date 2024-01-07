@@ -3,21 +3,29 @@ import { useState, Fragment, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { AppContext, classNames } from '../utils';
+import { SET_OPTION } from '../utils/reducer';
 
 const SelectOption = ({ options }) => {
-    const state = useContext(AppContext);
+    const { state, dispatch } = useContext(AppContext);
     const [selected, setSelected] = useState(options[0]);
     useEffect(() => {
-        if (state.option.status === '' && state.option.gender === '') {
+        if (
+            state.option.status === '' &&
+            state.option.gender === '' &&
+            state.option.species === ''
+        ) {
             setSelected(options[0]);
         }
     }, [state.option, options]);
 
     const handleChange = (value) => {
         setSelected(value);
-        state.setOption({
-            ...state.option,
-            [options[0].toLowerCase()]: value === options[0] ? '' : value
+        dispatch({
+            type: SET_OPTION,
+            payload: {
+                ...state.option,
+                [options[0].toLowerCase()]: value === options[0] ? '' : value
+            }
         });
     };
 

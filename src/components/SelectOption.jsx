@@ -17,8 +17,8 @@ const SelectOption = ({ options }) => {
     return (
         <Listbox value={state.option[options[0].toLowerCase()]} onChange={handleChange}>
             {({ open }) => (
-                <div className="relative w-full">
-                    <Listbox.Button className="relative w-full cursor-default rounded-md py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                <div className="relative w-full my-1">
+                    <Listbox.Button className="relative w-full cursor-default rounded-md py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                         <span className="ml-3 block truncate text-white">
                             {state.option[options[0].toLowerCase()]}
                         </span>
@@ -33,11 +33,11 @@ const SelectOption = ({ options }) => {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options className="absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="cursor-pointer absolute z-10 mt-1 max-h-56  w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                             {options.map((option) => (
                                 <Listbox.Option key={option} value={option}>
                                     {({ selected }) => (
-                                        <div className="flex items-center">
+                                        <div className="flex items-center hover:bg-gray-300">
                                             <span
                                                 className={classNames(
                                                     selected ? 'font-semibold' : 'font-normal',

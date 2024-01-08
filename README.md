@@ -5,3 +5,5 @@ Web application for searching and viewing information about characters of Rick a
 ---
 
 ## Silva Jonatan
+
+[Solution](https://kimche-client.vercel.app/)

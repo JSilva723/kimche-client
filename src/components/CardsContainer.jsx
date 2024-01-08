@@ -7,7 +7,7 @@ const CardsContainer = () => {
     const { state } = useContext(AppContext);
 
     return (
-        <div className="grid grid-cols-1 gap-4 p-3 sm:grid-cols-3 md:grid-cols-5 content-center justify-items-center overflow-y-auto">
+        <div className="grid gap-4 p-3 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 justify-items-center overflow-y-auto">
             {filterBy(state.chars, state.option).map((item) => (
                 <CardModal key={item.id} item={item} />
             ))}

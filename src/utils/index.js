@@ -24,7 +24,7 @@ export const filterBy = (chars, option) => {
         return ['status', 'gender', 'species'].every((key) => {
             const optionValue = option[key].toLowerCase();
             const itemValue = item[key].toLowerCase();
-            const shouldInclude = optionValue === '' || optionValue === key.toLowerCase();
+            const shouldInclude = optionValue === '' || optionValue === key;
             return shouldInclude ? true : itemValue === optionValue;
         });
     });

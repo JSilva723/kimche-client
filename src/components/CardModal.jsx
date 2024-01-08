@@ -6,12 +6,10 @@ import CardDetail from './CardDetail';
 const CardModal = ({ item }) => {
     const [open, setOpen] = useState(false);
     return (
-        <div className="relative">
-            <div onClick={() => setOpen(true)}>
-                <Card name={item.name} imgUrl={item.image} />
-            </div>
+        <>
+            <Card name={item.name} imgUrl={item.image} onClick={() => setOpen(true)} />
             {open ? <CardDetail item={item} setOpen={setOpen} /> : null}
-        </div>
+        </>
     );
 };
 

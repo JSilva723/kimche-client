@@ -11,7 +11,7 @@ export const Header = () => {
     });
 
     return (
-        <div>
+        <>
             <InputSearch />
             <div className="p-3 gap-x-3 md:flex md:items-center md:justify-between">
                 <SelectOption options={STATUS_LIST} />
@@ -24,11 +24,11 @@ export const Header = () => {
                             payload: { page: 1, name: '', option: initialOption }
                         })
                     }
-                    className="py-1 px-2 mx-3 rounded-md ring-2 ring-gray-300 text-white hover:text-black hover:bg-gray-50 focus:outline-none"
+                    className="py-1 px-2 mx-3 my-2 rounded-md ring-2 ring-gray-300 text-white hover:text-black hover:bg-gray-50 focus:outline-none"
                 >
                     Reset
                 </button>
             </div>
-        </div>
+        </>
     );
 };

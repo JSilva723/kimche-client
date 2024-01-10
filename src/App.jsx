@@ -1,8 +1,12 @@
 import { useEffect, useReducer } from 'react';
 import { useQuery } from '@apollo/client';
-import { Header, Pagination, CardsContainer, Loader } from './components';
-import { AppContext, GET_PAGE } from './utils';
+import Header from './components/Header';
+import CardsContainer from './components/CardsContainer';
+import Pagination from './components/Pagination';
+import Loader from './components/Loader';
+import { GET_PAGE } from './utils/querys';
 import { SET_CAHRACTERS, appReducer, initalState } from './utils/reducer';
+import { AppContext } from './context/AppContext';
 
 function App() {
     const [state, dispatch] = useReducer(appReducer, initalState);
@@ -17,7 +21,7 @@ function App() {
                 payload: { chars: data.characters.results, pages: data.characters.info.pages }
             });
         }
-    }, [data]);
+    }, [data, dispatch]);
 
     return (
         <div className="flex flex-col h-screen bg-black">

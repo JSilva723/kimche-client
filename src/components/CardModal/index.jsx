@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import Card from './Card';
-import CardDetail from './CardDetail';
+import Card from '../Card';
+import CardDetail from '../CardDetail';
 
 const CardModal = ({ item }) => {
     const [open, setOpen] = useState(false);

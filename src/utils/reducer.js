@@ -1,10 +1,12 @@
-import { SPECIES_LIST, GENDER_LIST, STATUS_LIST } from '.';
-
 export const SET_OPTION = 'SET_OPTION';
 export const SET_PAGE = 'SET_PAGE';
 export const SET_NAME = 'SET_NAME';
 export const SET_CAHRACTERS = 'SET_CAHRACTERS';
 export const RESET = 'RESET';
+
+export const SPECIES_LIST = ['Species'];
+export const STATUS_LIST = ['Status', 'Dead', 'Alive', 'Unknown'];
+export const GENDER_LIST = ['Gender', 'Unknown', 'Female', 'Male', 'Genderless'];
 
 export const initialOption = {
     status: STATUS_LIST[0],

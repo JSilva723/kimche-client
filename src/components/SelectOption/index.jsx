@@ -2,8 +2,12 @@ import { Listbox, Transition } from '@headlessui/react';
 import { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
-import { AppContext, classNames } from '../utils';
-import { SET_OPTION } from '../utils/reducer';
+import { SET_OPTION } from '../../utils/reducer';
+import { AppContext } from '../../context/AppContext';
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ');
+}
 
 const SelectOption = ({ options }) => {
     const { state, dispatch } = useContext(AppContext);

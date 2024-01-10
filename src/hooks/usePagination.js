@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import { AppContext } from '../utils';
 import { SET_PAGE } from '../utils/reducer';
+import { AppContext } from '../context/AppContext';
 
 export const usePagination = () => {
     const { state, dispatch } = useContext(AppContext);

@@ -1,9 +1,9 @@
 import { useContext, useRef } from 'react';
-import { AppContext } from '../utils';
-import ButtonIcon from './ui/ButtonIcon';
-import { SET_NAME } from '../utils/reducer';
+import ButtonIcon from '../UI/ButtonIcon';
+import { SET_NAME } from '../../utils/reducer';
+import { AppContext } from '../../context/AppContext';
 
-export const InputSearch = () => {
+const InputSearch = () => {
     const { dispatch } = useContext(AppContext);
     const inputRef = useRef();
     const handleSearch = () => {
@@ -27,3 +27,5 @@ export const InputSearch = () => {
         </div>
     );
 };
+
+export default InputSearch;

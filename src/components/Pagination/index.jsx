@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { usePagination } from '../hooks/usePagination';
-import ButtonIcon from './ui/ButtonIcon';
+import ButtonIcon from '../UI/ButtonIcon';
+import { usePagination } from '../../hooks/usePagination';
 
 const Pagination = () => {
     const { state, handlePrev, handleNext } = usePagination();

@@ -1,7 +1,18 @@
 import { useContext } from 'react';
 import PropTypes from 'prop-types';
-import CardModal from './CardModal';
-import { AppContext, filterBy } from '../utils';
+import { AppContext } from '../../context/AppContext';
+import CardModal from '../CardModal';
+
+const filterBy = (chars, option) => {
+    return chars.filter((item) => {
+        return ['status', 'gender', 'species'].every((key) => {
+            const optionValue = option[key].toLowerCase();
+            const itemValue = item[key].toLowerCase();
+            const shouldInclude = optionValue === '' || optionValue === key;
+            return shouldInclude ? true : itemValue === optionValue;
+        });
+    });
+};
 
 const CardsContainer = () => {
     const { state } = useContext(AppContext);

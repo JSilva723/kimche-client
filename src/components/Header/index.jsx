@@ -1,10 +1,18 @@
 import { useContext, useEffect } from 'react';
-import SelectOption from './SelectOption';
-import { AppContext, GENDER_LIST, STATUS_LIST, mgrSpecies } from '../utils';
-import { InputSearch } from './InputSearch';
-import { RESET, initialOption } from '../utils/reducer';
+import SelectOption from '../SelectOption';
+import InputSearch from '../InputSearch';
+import { RESET, initialOption, GENDER_LIST, STATUS_LIST } from '../../utils/reducer';
+import { AppContext } from '../../context/AppContext';
 
-export const Header = () => {
+const mgrSpecies = (chars, speciesList) => {
+    chars.forEach((element) => {
+        if (!speciesList.includes(element.species)) {
+            speciesList.push(element.species);
+        }
+    });
+};
+
+const Header = () => {
     const { state, dispatch } = useContext(AppContext);
     useEffect(() => {
         mgrSpecies(state.chars, state.species);
@@ -32,3 +40,5 @@ export const Header = () => {
         </>
     );
 };
+
+export default Header;

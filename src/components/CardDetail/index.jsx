@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import PropTypes from 'prop-types';
-import { GET_DIMENSION } from '../utils';
-import ButtonIcon from './ui/ButtonIcon';
+import { GET_DIMENSION } from '../../utils/querys';
+import ButtonIcon from '../UI/ButtonIcon';
 
 const RowDetail = ({ label, text }) => (
     <p className="text-lg text-white mt-2">
